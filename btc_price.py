@@ -1,5 +1,8 @@
+import sys
+import os
 import requests
 import time
+
 
 version = "v1.0"
 print("---------------------\n", version, "Bitcoin to USD\n---------------------")
@@ -9,8 +12,12 @@ parameter = {'rate': float}
 
 def refreshDataBTC():
     responseBTC = requests.post(bitcoinUrlAddress, data = parameter)
-    print ("1 Bitcoin ~= $" + str(responseBTC.text), "USD |", time.ctime(), "|")
+
+    print ("1 Bitcoin ~= $" + str(responseBTC.text) + " USD |" + time.ctime() + "|")
     print("Waiting 65 seconds before requesting information again..")
+
+    with open(os.path.join(sys.path[0], "bitcoin_price_data.log"), "a") as log:
+        log.write("1 Bitcoin ~= $" + str(responseBTC.text) + " USD |" + time.ctime() + "|\n")
 
 while True:
     refreshDataBTC()
