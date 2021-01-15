@@ -4,7 +4,7 @@ import requests
 import time
 
 
-version = "v1.0"
+version = "v1.1"
 print("---------------------\n", version, "Bitcoin to USD\n---------------------")
 
 bitcoinUrlAddress = 'https://joebohack.com/storage/personal/btc_price.php'
