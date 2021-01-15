@@ -4,8 +4,11 @@ import requests
 import time
 
 
-version = "v1.1"
+version = "v1.2"
 print("---------------------\n", version, "Bitcoin to USD\n---------------------")
+
+logDataToFile = "true"
+fileName = "bitcoin_price_data"
 
 bitcoinUrlAddress = 'https://joebohack.com/storage/personal/btc_price.php'
 parameter = {'rate': float}
@@ -16,8 +19,9 @@ def refreshDataBTC():
     print ("1 Bitcoin ~= $" + str(responseBTC.text) + " USD |" + time.ctime() + "|")
     print("Waiting 65 seconds before requesting information again..")
 
-    with open(os.path.join(sys.path[0], "bitcoin_price_data.log"), "a") as log:
-        log.write("1 Bitcoin ~= $" + str(responseBTC.text) + " USD |" + time.ctime() + "|\n")
+    if logDataToFile == "true":
+        with open(os.path.join(sys.path[0], fileName + ".log"), "a") as log:
+            log.write("1 Bitcoin ~= $" + str(responseBTC.text) + " USD |" + time.ctime() + "|\n")
 
 while True:
     refreshDataBTC()
