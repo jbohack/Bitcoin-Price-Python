@@ -5,7 +5,7 @@ import time
 import threading
 
 
-version = "v1.6"
+version = "v1.7"
 print("---------------------\n", version, "Bitcoin to USD\n---------------------")
 
 # enable / disable logging to a file completly
@@ -13,7 +13,7 @@ logDataToFile = "true"
 
 # enable / disable logging data to a log file per interval
 logData_65Seconds = "true" 
-logData_5Minutes = "true"  
+logData_5Minutes  = "true"  
 logData_10Minutes = "true"
 logData_30Minutes = "true"
 
@@ -26,7 +26,7 @@ logToTerminal_30Minutes = "true"
 
 # you can modify the file names for the logs here
 fileName_65Seconds = "bitcoin_price_data_65_seconds"
-fileName_5Minutes = "bitcoin_price_data_5_minutes"
+fileName_5Minutes  = "bitcoin_price_data_5_minutes"
 fileName_10Minutes = "bitcoin_price_data_10_minutes"
 fileName_30Minutes = "bitcoin_price_data_30_minutes"
 
