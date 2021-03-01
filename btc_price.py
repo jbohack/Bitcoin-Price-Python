@@ -5,8 +5,11 @@ import time
 import threading
 
 
-version = "v1.7"
+version = "v1.8"
 print("---------------------\n", version, "Bitcoin to USD\n---------------------")
+
+# enable / disable printing status code 
+showStatusCode = "true"
 
 # enable / disable logging to a file completly
 logDataToFile = "true"
@@ -37,13 +40,21 @@ def refreshData_65Seconds():
     while True:
         response_65Seconds = requests.post(bitcoinUrlAddress, data = parameter)
 
+        if response_65Seconds.status_code != 200:
+            print("An error has occured while requesting the data.")
+
+        if showStatusCode == "true":
+            print("Status Code:", response_65Seconds.status_code)
+
         if logToTerminal_65Seconds == "true":
-            print ("1 Bitcoin ~= $" + str(response_65Seconds.text) + " USD |" + time.ctime() + "|")
-            print("Waiting 65 seconds before requesting information again..")
+            if response_65Seconds.status_code == 200:
+                print ("1 Bitcoin ~= $" + str(response_65Seconds.text) + " USD |" + time.ctime() + "|")
+                print("Waiting 65 seconds before requesting information again..")
 
         if logDataToFile == "true" and logData_65Seconds == "true":
-            with open(os.path.join(sys.path[0], fileName_65Seconds + ".log"), "a") as log:
-                log.write("1 Bitcoin ~= $" + str(response_65Seconds.text) + " USD |" + time.ctime() + "|\n")
+            if response_65Seconds.status_code == 200:
+                with open(os.path.join(sys.path[0], fileName_65Seconds + ".log"), "a") as log:
+                    log.write("1 Bitcoin ~= $" + str(response_65Seconds.text) + " USD |" + time.ctime() + "|\n")
             time.sleep(65)
         else:
             time.sleep(65)
@@ -52,13 +63,21 @@ def refreshData_5Minutes():
     while True:
         response_5Minutes = requests.post(bitcoinUrlAddress, data = parameter)
 
+        if response_5Minutes.status_code != 200:
+            print("An error has occured while requesting the data.")        
+
+        if showStatusCode == "true":
+            print("Status Code:", response_5Minutes.status_code)
+
         if logToTerminal_5Minutes == "true":
-            print ("1 Bitcoin ~= $" + str(response_5Minutes.text) + " USD |" + time.ctime() + "|")
-            print("Waiting 5 minutes before requesting information again..")
+            if response_5Minutes.status_code == 200:
+                print ("1 Bitcoin ~= $" + str(response_5Minutes.text) + " USD |" + time.ctime() + "|")
+                print("Waiting 5 minutes before requesting information again..")
 
         if logDataToFile == "true" and logData_5Minutes == "true":
-            with open(os.path.join(sys.path[0], fileName_5Minutes + ".log"), "a") as log:
-                log.write("1 Bitcoin ~= $" + str(response_5Minutes.text) + " USD |" + time.ctime() + "|\n")
+            if response_5Minutes.status_code == 200:
+                with open(os.path.join(sys.path[0], fileName_5Minutes + ".log"), "a") as log:
+                    log.write("1 Bitcoin ~= $" + str(response_5Minutes.text) + " USD |" + time.ctime() + "|\n")
             time.sleep(300)
         else:
             time.sleep(300)
@@ -66,13 +85,22 @@ def refreshData_5Minutes():
 def refreshData_10Minutes():
     while True:
         response_10Minutes = requests.post(bitcoinUrlAddress, data = parameter)
+
+        if response_10Minutes.status_code != 200:
+            print("An error has occured while requesting the data.")
+
+        if showStatusCode == "true":
+            print("Status Code:", response_10Minutes.status_code)
+
         if logToTerminal_10Minutes == "true":
-            print ("1 Bitcoin ~= $" + str(response_10Minutes.text) + " USD |" + time.ctime() + "|")
-            print("Waiting 10 minutes before requesting information again..")
+            if response_10Minutes.status_code == 200:
+                print ("1 Bitcoin ~= $" + str(response_10Minutes.text) + " USD |" + time.ctime() + "|")
+                print("Waiting 10 minutes before requesting information again..")
 
         if logDataToFile == "true" and logData_10Minutes == "true":
-            with open(os.path.join(sys.path[0], fileName_10Minutes + ".log"), "a") as log:
-                log.write("1 Bitcoin ~= $" + str(response_10Minutes.text) + " USD |" + time.ctime() + "|\n")
+            if response_10Minutes.status_code == 200:
+                with open(os.path.join(sys.path[0], fileName_10Minutes + ".log"), "a") as log:
+                    log.write("1 Bitcoin ~= $" + str(response_10Minutes.text) + " USD |" + time.ctime() + "|\n")
             time.sleep(600)
         else:
             time.sleep(600)
@@ -81,13 +109,21 @@ def refreshData_30Minutes():
     while True:
         response_30Minutes = requests.post(bitcoinUrlAddress, data = parameter)
 
+        if response_30Minutes.status_code != 200:
+            print("An error has occured while requesting the data.")
+
+        if showStatusCode == "true":
+            print("Status Code:", response_30Minutes.status_code)
+
         if logToTerminal_30Minutes == "true":
-            print ("1 Bitcoin ~= $" + str(response_30Minutes.text) + " USD |" + time.ctime() + "|")
-            print("Waiting 30 minutes before requesting information again..")
+            if response_30Minutes.status_code == 200:
+                print ("1 Bitcoin ~= $" + str(response_30Minutes.text) + " USD |" + time.ctime() + "|")
+                print("Waiting 30 minutes before requesting information again..")
 
         if logDataToFile == "true" and logData_30Minutes == "true":
-            with open(os.path.join(sys.path[0], fileName_30Minutes + ".log"), "a") as log:
-                log.write("1 Bitcoin ~= $" + str(response_30Minutes.text) + " USD |" + time.ctime() + "|\n")
+            if response_30Minutes.status_code == 200:
+                with open(os.path.join(sys.path[0], fileName_30Minutes + ".log"), "a") as log:
+                    log.write("1 Bitcoin ~= $" + str(response_30Minutes.text) + " USD |" + time.ctime() + "|\n")
             time.sleep(1800)
         else:
             time.sleep(1800)
