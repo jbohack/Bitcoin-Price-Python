@@ -5,8 +5,8 @@ import time
 import threading
 
 
-version = "v1.8"
-print("---------------------\n", version, "Bitcoin to USD\n---------------------")
+version = "v1.9"
+print("---------------------\n", version, "Bitcoin to USD\n---------------------\n")
 
 # enable / disable printing status code 
 showStatusCode = "true"
@@ -50,6 +50,7 @@ def refreshData_65Seconds():
             if response_65Seconds.status_code == 200:
                 print ("1 Bitcoin ~= $" + str(response_65Seconds.text) + " USD |" + time.ctime() + "|")
                 print("Waiting 65 seconds before requesting information again..")
+                print("-------------------------------------------------------")
 
         if logDataToFile == "true" and logData_65Seconds == "true":
             if response_65Seconds.status_code == 200:
@@ -73,6 +74,7 @@ def refreshData_5Minutes():
             if response_5Minutes.status_code == 200:
                 print ("1 Bitcoin ~= $" + str(response_5Minutes.text) + " USD |" + time.ctime() + "|")
                 print("Waiting 5 minutes before requesting information again..")
+                print("-------------------------------------------------------")
 
         if logDataToFile == "true" and logData_5Minutes == "true":
             if response_5Minutes.status_code == 200:
@@ -96,6 +98,7 @@ def refreshData_10Minutes():
             if response_10Minutes.status_code == 200:
                 print ("1 Bitcoin ~= $" + str(response_10Minutes.text) + " USD |" + time.ctime() + "|")
                 print("Waiting 10 minutes before requesting information again..")
+                print("-------------------------------------------------------")
 
         if logDataToFile == "true" and logData_10Minutes == "true":
             if response_10Minutes.status_code == 200:
@@ -119,6 +122,7 @@ def refreshData_30Minutes():
             if response_30Minutes.status_code == 200:
                 print ("1 Bitcoin ~= $" + str(response_30Minutes.text) + " USD |" + time.ctime() + "|")
                 print("Waiting 30 minutes before requesting information again..")
+                print("-------------------------------------------------------")
 
         if logDataToFile == "true" and logData_30Minutes == "true":
             if response_30Minutes.status_code == 200:
