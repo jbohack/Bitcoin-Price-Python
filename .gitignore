@@ -1,7 +1,3 @@
-
-bitcoin_price_data.log
-bitcoin_price_data_65_seconds.log
-bitcoin_price_data_5_minutes.log
-bitcoin_price_data_10_minutes.log
-bitcoin_price_data_30_minutes.log
+bitcoin_price_data_*.log
+btc_price_beta.py
 .vscode
