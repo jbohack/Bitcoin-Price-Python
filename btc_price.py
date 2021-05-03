@@ -5,7 +5,7 @@ import time
 import threading
 
 
-version = "v2.1"
+version = "v2.2"
 print("---------------------\n", version, "Bitcoin to USD\n---------------------\n")
 
 # you can modify the file names for the logs here
@@ -72,8 +72,11 @@ if amountOfLogs >= 1:
 
             if logDataToFile == "y" and logData_1 == "true":
                 if response_1.status_code == 200:
-                    with open(os.path.join(sys.path[0], fileName_1 + ".log"), "a") as log:
-                        log.write("1 Bitcoin ~= $" + str(response_1.text) + " USD |" + time.ctime() + "|\n")
+                    try:
+                        with open(os.path.join(sys.path[0], fileName_1 + ".log"), "a") as log:
+                            log.write("1 Bitcoin ~= $" + str(response_1.text) + " USD |" + time.ctime() + "|\n")
+                    except:
+                        print("An error has occurred while writing to the file!")
             time.sleep(log1_interval)      
 
 if amountOfLogs >= 2: 
@@ -95,8 +98,11 @@ if amountOfLogs >= 2:
                 
             if logDataToFile == "y" and logData_2 == "true":
                 if response_2.status_code == 200:
-                    with open(os.path.join(sys.path[0], fileName_2 + ".log"), "a") as log:
-                        log.write("1 Bitcoin ~= $" + str(response_2.text) + " USD |" + time.ctime() + "|\n")
+                    try:
+                        with open(os.path.join(sys.path[0], fileName_2 + ".log"), "a") as log:
+                            log.write("1 Bitcoin ~= $" + str(response_2.text) + " USD |" + time.ctime() + "|\n")
+                    except:
+                        print("An error has occurred while writing to the file!")
             time.sleep(log2_interval)
 
 if amountOfLogs >= 3:             
@@ -118,8 +124,11 @@ if amountOfLogs >= 3:
 
             if logDataToFile == "y" and logData_3 == "true":
                 if response_3.status_code == 200:
-                    with open(os.path.join(sys.path[0], fileName_3 + ".log"), "a") as log:
-                        log.write("1 Bitcoin ~= $" + str(response_3.text) + " USD |" + time.ctime() + "|\n")
+                    try:
+                        with open(os.path.join(sys.path[0], fileName_3 + ".log"), "a") as log:
+                            log.write("1 Bitcoin ~= $" + str(response_3.text) + " USD |" + time.ctime() + "|\n")
+                    except:
+                        print("An error has occurred while writing to the file!")
             time.sleep(log3_interval)
 
 if amountOfLogs >= 4:             
@@ -141,8 +150,11 @@ if amountOfLogs >= 4:
 
             if logDataToFile == "y" and logData_4 == "true":
                 if response_4.status_code == 200:
-                    with open(os.path.join(sys.path[0], fileName_4 + ".log"), "a") as log:
-                        log.write("1 Bitcoin ~= $" + str(response_4.text) + " USD |" + time.ctime() + "|\n")
+                    try:
+                        with open(os.path.join(sys.path[0], fileName_4 + ".log"), "a") as log:
+                            log.write("1 Bitcoin ~= $" + str(response_4.text) + " USD |" + time.ctime() + "|\n")
+                    except:
+                        print("An error has occurred while writing to the file!")
             time.sleep(log4_interval)
             
 # this will allow for running multiple loops while the program runs
