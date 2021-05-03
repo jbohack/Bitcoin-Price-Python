@@ -1,3 +1,4 @@
 bitcoin_price_data_*.log
 btc_price_beta.py
 .vscode
+.DS_Store
