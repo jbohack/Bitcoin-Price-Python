@@ -5,7 +5,7 @@ import time
 import threading
 
 
-version = "v2.2"
+version = "v2.3"
 print("---------------------\n", version, "Bitcoin to USD\n---------------------\n")
 
 # you can modify the file names for the logs here
@@ -59,7 +59,7 @@ if amountOfLogs >= 1:
             response_1 = requests.post(bitcoinUrlAddress, data = parameter)
 
             if response_1.status_code != 200:
-                print("An error has occured while requesting the data.")
+                print("An error has occurred while requesting the data.")
 
             if showStatusCode == "y":
                 print("Status Code:", response_1.status_code)
@@ -85,7 +85,7 @@ if amountOfLogs >= 2:
             response_2 = requests.post(bitcoinUrlAddress, data = parameter)
 
             if response_2.status_code != 200:
-                print("An error has occured while requesting the data.")        
+                print("An error has occurred while requesting the data.")        
 
             if showStatusCode == "y":
                 print("Status Code:", response_2.status_code)
@@ -111,7 +111,7 @@ if amountOfLogs >= 3:
             response_3 = requests.post(bitcoinUrlAddress, data = parameter)
 
             if response_3.status_code != 200:
-                print("An error has occured while requesting the data.")
+                print("An error has occurred while requesting the data.")
 
             if showStatusCode == "y":
                 print("Status Code:", response_3.status_code)
@@ -137,7 +137,7 @@ if amountOfLogs >= 4:
             response_4 = requests.post(bitcoinUrlAddress, data = parameter)
 
             if response_4.status_code != 200:
-                print("An error has occured while requesting the data.")
+                print("An error has occurred while requesting the data.")
 
             if showStatusCode == "y":
                 print("Status Code:", response_4.status_code)
